@@ -7,10 +7,12 @@ project(aquaculture_worlds)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED xacro)
 
 ## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
+find_package(Boost REQUIRED COMPONENTS 
+    system 
+)
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
@@ -101,7 +103,7 @@ find_package(catkin REQUIRED)
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES aquaculture_worlds
-#  CATKIN_DEPENDS other_catkin_pkg
+   CATKIN_DEPENDS xacro
 #  DEPENDS system_lib
 )
 
@@ -149,6 +151,24 @@ include_directories(
 #############
 ## Install ##
 #############
+
+set(XACRO_INORDER)
+if(DEFINED ENV{ROS_DISTRO})
+  if($ENV{ROS_DISTRO} STREQUAL "kinetic")
+    set(XACRO_INORDER INORDER)
+  endif()
+endif()
+
+xacro_add_files(
+  worlds/single_fish_cage.world.xacro
+  ${XACRO_INORDER} INSTALL DESTINATION worlds
+)
+
+install(DIRECTORY worlds/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/worlds)
+
+install(DIRECTORY models/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/models)
 
 # all install targets should use catkin DESTINATION variables
 # See http://ros.org/doc/api/catkin/html/adv_user_guide/variables.html

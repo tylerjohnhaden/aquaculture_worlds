@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    
+    <node name="aqua_uuv_routine"
+        pkg="aquaculture_worlds"
+        type="hard_uuv_routine.py"
+        output="screen">
+        <rosparam subst_value="true" >
+            uuv_waypoint_filename: $(find aquaculture_worlds)/uuv_waypoint_demo.yaml
+        </rosparam>
+    </node>
+</launch>
+

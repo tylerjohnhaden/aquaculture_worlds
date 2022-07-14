@@ -1,0 +1,14 @@
+material Fish/Golden
+{
+  receive_shadows true
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture Fish_tex.jpg
+      }
+    }
+  }
+}

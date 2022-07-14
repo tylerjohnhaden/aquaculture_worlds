@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <launch>
+<arg name="debug" default="0"/>
+
+  <arg name="namespace" default="rexrov"/>
+  <arg name="use_ned_frame" default="false"/>
+
     <arg name="gui" default="true"/>
     <arg name="paused" default="false"/>
     <arg name="set_timeout" default="false"/>
@@ -26,10 +31,10 @@
     <arg name="uuv_y" default="32"/>
     <arg name="uuv_z" default="-20"/>
     <arg name="uuv_yaw" default="3.7"/>
-    <arg name="uuv_name" default="rexrov2"/>
+    <arg name="uuv_name" default="rexrov"/>
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="world_name" value="worlds/0single_fish_cage.world"/>
+        <arg name="world_name" value="worlds/populated_fish_cage.world"/>
         <arg name="paused" value="$(arg paused)"/>
         <arg name="use_sim_time" value="true"/>
         <arg name="gui" value="$(arg gui)"/>
@@ -71,11 +76,6 @@
                         position: [0, 1000, -50]
         </rosparam>
     </node>
-        
-            <!-- <node name="spawn_cage_model" pkg="gazebo_ros" type="spawn_model"
-        args="-x 0 -y 0 -z 0
-              -R 0 -P 0 -Y 0
-              -sdf -file $(find aquaculture_worlds)/models/cage/model.sdf -model cage"/> -->
     
               
     <include file="$(find rexrov2_description)/launch/upload_rexrov2.launch">
@@ -91,8 +91,6 @@
         <arg name="joy_id" value="$(arg joy_id)"/>
         <arg name="use_ned_frame" value="false"/>
     </include>
-    
-
     
     <param name="$(arg usv_namespace)/robot_description"
          command="$(find xacro)/xacro '$(arg usv_urdf)'
@@ -111,5 +109,9 @@
             <arg name="timeout" value="$(arg timeout)"/>
         </include>
     </group>
+
+    <arg name="rviz_config" default="$(find wamv_gazebo)/config/rviz_vrx.rviz" />
+  <node pkg="rviz" type="rviz"
+        name="wamv_visualization" args="-d $(arg rviz_config)" />
 </launch>
 

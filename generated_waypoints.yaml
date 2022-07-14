@@ -1,299 +1,240 @@
-- point: [31.00, 0.00, -3.00]
+- point: [30.00, 0.00, -3.00]
+  max_forward_speed: 0.7
+  heading: 0.000
+  use_fixed_heading: false
+- point: [30.00, 0.00, -5.44]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 4.712
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -5.78]
+- point: [30.00, 0.00, -7.89]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 4.712
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -8.56]
+- point: [30.00, 0.00, -10.33]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 4.712
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -11.33]
+- point: [30.00, 0.00, -12.78]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 4.712
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -14.11]
+- point: [30.00, 0.00, -15.22]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 4.712
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -16.89]
+- point: [30.00, 0.00, -17.67]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 4.712
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -19.67]
+- point: [30.00, 0.00, -20.11]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 4.712
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -22.44]
+- point: [30.00, 0.00, -22.56]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 4.712
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -25.22]
+- point: [30.00, 0.00, -25.00]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 4.712
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -28.00]
+- point: [28.98, 7.76, -25.00]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 1.833
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -28.00]
+- point: [28.98, 7.76, -22.56]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 1.833
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -25.22]
+- point: [28.98, 7.76, -20.11]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 1.833
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -22.44]
+- point: [28.98, 7.76, -17.67]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 1.833
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -19.67]
+- point: [28.98, 7.76, -15.22]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 1.833
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -16.89]
+- point: [28.98, 7.76, -12.78]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 1.833
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -14.11]
+- point: [28.98, 7.76, -10.33]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 1.833
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -11.33]
+- point: [28.98, 7.76, -7.89]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 1.833
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -8.56]
+- point: [28.98, 7.76, -5.44]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 1.833
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -5.78]
+- point: [28.98, 7.76, -3.00]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 1.833
   use_fixed_heading: true
-
-- point: [31.00, 0.00, -3.00]
+- point: [25.98, 15.00, -3.00]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.236
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -3.00]
+- point: [25.98, 15.00, -5.44]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.236
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -5.78]
+- point: [25.98, 15.00, -7.89]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.236
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -8.56]
+- point: [25.98, 15.00, -10.33]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.236
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -11.33]
+- point: [25.98, 15.00, -12.78]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.236
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -14.11]
+- point: [25.98, 15.00, -15.22]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.236
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -16.89]
+- point: [25.98, 15.00, -17.67]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.236
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -19.67]
+- point: [25.98, 15.00, -20.11]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.236
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -22.44]
+- point: [25.98, 15.00, -22.56]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.236
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -25.22]
+- point: [25.98, 15.00, -25.00]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.236
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -28.00]
+- point: [21.21, 21.21, -25.00]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.356
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -28.00]
+- point: [21.21, 21.21, -22.56]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.356
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -25.22]
+- point: [21.21, 21.21, -20.11]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.356
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -22.44]
+- point: [21.21, 21.21, -17.67]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.356
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -19.67]
+- point: [21.21, 21.21, -15.22]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.356
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -16.89]
+- point: [21.21, 21.21, -12.78]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.356
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -14.11]
+- point: [21.21, 21.21, -10.33]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.356
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -11.33]
+- point: [21.21, 21.21, -7.89]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.356
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -8.56]
+- point: [21.21, 21.21, -5.44]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.356
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -5.78]
+- point: [21.21, 21.21, -3.00]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.356
   use_fixed_heading: true
-
-- point: [26.85, 15.50, -3.00]
+- point: [15.00, 25.98, -3.00]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.760
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -3.00]
+- point: [15.00, 25.98, -5.44]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.760
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -5.78]
+- point: [15.00, 25.98, -7.89]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.760
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -8.56]
+- point: [15.00, 25.98, -10.33]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.760
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -11.33]
+- point: [15.00, 25.98, -12.78]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.760
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -14.11]
+- point: [15.00, 25.98, -15.22]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.760
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -16.89]
+- point: [15.00, 25.98, -17.67]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.760
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -19.67]
+- point: [15.00, 25.98, -20.11]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.760
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -22.44]
+- point: [15.00, 25.98, -22.56]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.760
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -25.22]
+- point: [15.00, 25.98, -25.00]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 5.760
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -28.00]
+- point: [7.76, 28.98, -25.00]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.880
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -28.00]
+- point: [7.76, 28.98, -22.56]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.880
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -25.22]
+- point: [7.76, 28.98, -20.11]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.880
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -22.44]
+- point: [7.76, 28.98, -17.67]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.880
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -19.67]
+- point: [7.76, 28.98, -15.22]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.880
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -16.89]
+- point: [7.76, 28.98, -12.78]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.880
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -14.11]
+- point: [7.76, 28.98, -10.33]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.880
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -11.33]
+- point: [7.76, 28.98, -7.89]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.880
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -8.56]
+- point: [7.76, 28.98, -5.44]
   max_forward_speed: 0.5
-  heading: 0
+  heading: 2.880
   use_fixed_heading: true
-
-- point: [15.50, 26.85, -5.78]
+- point: [7.76, 28.98, -3.00]
   max_forward_speed: 0.5
-  heading: 0
-  use_fixed_heading: true
-
-- point: [15.50, 26.85, -3.00]
-  max_forward_speed: 0.5
-  heading: 0
+  heading: 2.880
   use_fixed_heading: true

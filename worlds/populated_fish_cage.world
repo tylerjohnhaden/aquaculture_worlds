@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sdf version="1.6">
+  <world name="single_fish_cage">
+    <model name="ocean_waves">
+      <static>true</static>
+      <plugin filename="libWavefieldModelPlugin.so" name="wavefield_plugin">
+        <static>false</static>
+        <update_rate>30</update_rate>
+        <size>1000 1000</size>
+        <cell_count>50 50</cell_count>
+        <wave>
+          <model>PMS</model>
+          <period>5</period>
+          <number>3</number>
+          <scale>2.5</scale>
+          <gain>0.1</gain>
+          <direction>1.0 0.0</direction>
+          <angle>0.4</angle>
+          <tau>2.0</tau>
+          <amplitude>0.0</amplitude>
+          <!-- No effect for the PMS model -->
+          <steepness>0.0</steepness>
+        </wave>
+      </plugin>
+      <link name="ocean_waves_link">
+        <visual name="ocean_waves_visual">
+          <plugin filename="libWavefieldVisualPlugin.so" name="ocean_waves_visual_plugin">
+            <enableRtt>true</enableRtt>
+            <rttNoise>0.1</rttNoise>
+            <refractOpacity>0.2</refractOpacity>
+            <reflectOpacity>0.2</reflectOpacity>
+            <wave>
+              <model>PMS</model>
+              <period>5</period>
+              <number>3</number>
+              <scale>2.5</scale>
+              <gain>0.1</gain>
+              <direction>1.0 0.0</direction>
+              <angle>0.4</angle>
+              <tau>2.0</tau>
+              <amplitude>0.0</amplitude>
+              <!-- No effect for the PMS model -->
+              <steepness>0.0</steepness>
+            </wave>
+          </plugin>
+          <geometry>
+            <mesh>
+              <scale>2.5 2.5 1</scale>
+              <uri>model://ocean_waves/meshes/mesh.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://ocean_waves/materials/scripts/waves.material</uri>
+              <name>WaveSim/GerstnerWaves</name>
+            </script>
+          </material>
+          <laser_retro>-1</laser_retro>
+        </visual>
+        <visual name="ocean_waves_below_visual">
+          <pose>0 0 -0.05 0 0 0</pose>
+          <!-- Offset to prevent rendering conflict -->
+          <geometry>
+            <mesh>
+              <scale>2.5 2.5 1</scale>
+              <uri>model://ocean_waves/meshes/mesh_below.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://ocean_waves/materials/scripts/waves.material</uri>
+              <name>WaveSim/GerstnerWaves</name>
+            </script>
+          </material>
+          <laser_retro>-1</laser_retro>
+        </visual>
+      </link>
+    </model>
+    <include><name>sand_heightmap</name><uri>model://sand_heightmap</uri><pose>0 0 -95 0 0 0</pose></include>
+    <include><name>sand_heightmap0</name><uri>model://sand_heightmap</uri><pose>0 500 -95 0 0 0</pose></include>
+    <include><name>sand_heightmap1</name><uri>model://sand_heightmap</uri><pose>0 -500 -95 0 0 0</pose></include>
+    <include><name>sand_heightmap2</name><uri>model://sand_heightmap</uri><pose>500 0 -95 0 0 0</pose></include>
+    <include><name>sand_heightmap3</name><uri>model://sand_heightmap</uri><pose>500 500 -95 0 0 0</pose></include>
+    <include><name>sand_heightmap4</name><uri>model://sand_heightmap</uri><pose>500 -500 -95 0 0 0</pose></include>
+    <include><name>sand_heightmap5</name><uri>model://sand_heightmap</uri><pose>-500 0 -95 0 0 0</pose></include>
+    <include><name>sand_heightmap6</name><uri>model://sand_heightmap</uri><pose>-500 500 -95 0 0 0</pose></include>
+    <include><name>sand_heightmap7</name><uri>model://sand_heightmap</uri><pose>-500 -500 -95 0 0 0</pose></include>
+    <!--Gazebo Plugin for simulating WAM-V dynamics-->
+    <plugin filename="libusv_gazebo_wind_plugin.so" name="wind">
+      <!-- models to be effected by the wind -->
+      <wind_obj>
+        <name>wamv</name>
+        <link_name>wamv/base_link</link_name>
+        <coeff_vector>.5 .5 .33</coeff_vector>
+      </wind_obj>
+      <!-- Wind -->
+      <wind_direction>270</wind_direction>
+      <!-- in degrees -->
+      <wind_mean_velocity>0</wind_mean_velocity>
+      <var_wind_gain_constants>0</var_wind_gain_constants>
+      <var_wind_time_constants>2</var_wind_time_constants>
+      <random_seed></random_seed>
+      <!-- set to zero/empty to randomize -->
+      <update_rate>10</update_rate>
+      <topic_wind_speed>/vrx/debug/wind/speed</topic_wind_speed>
+      <topic_wind_direction>/vrx/debug/wind/direction</topic_wind_direction>
+    </plugin>
+    <plugin name="underwater_current_plugin" filename="libuuv_underwater_current_ros_plugin.so">
+      <namespace>hydrodynamics</namespace>
+      <constant_current>
+        <topic>current_velocity</topic>
+        <velocity>
+          <mean>0</mean>
+          <min>0</min>
+          <max>5</max>
+          <mu>0.0</mu>
+          <noiseAmp>0.0</noiseAmp>
+        </velocity>
+
+        <horizontal_angle>
+          <mean>0</mean>
+          <min>-3.141592653589793238</min>
+          <max>3.141592653589793238</max>
+          <mu>0.0</mu>
+          <noiseAmp>0.0</noiseAmp>
+        </horizontal_angle>
+
+        <vertical_angle>
+          <mean>0</mean>
+          <min>-3.141592653589793238</min>
+          <max>3.141592653589793238</max>
+          <mu>0.0</mu>
+          <noiseAmp>0.0</noiseAmp>
+        </vertical_angle>
+      </constant_current>
+    </plugin>
+
+    <plugin name="sc_interface" filename="libuuv_sc_ros_interface_plugin.so"/>
+    <include>
+      <uri>model://cage</uri>
+      <pose>0 0 -40 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://wec</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+    <include><name>goldenfish0</name><uri>model://goldenfish</uri><pose>5.45 -21.32 -16.12 7.69 6.28 0.27</pose></include>
+<include><name>goldenfish1</name><uri>model://goldenfish</uri><pose>18.85 11.34 -10.60 7.74 0.01 2.17</pose></include>
+<include><name>goldenfish2</name><uri>model://goldenfish</uri><pose>8.55 15.37 -3.09 1.63 0.02 2.75</pose></include>
+<include><name>goldenfish3</name><uri>model://goldenfish</uri><pose>11.66 -13.34 -6.02 7.80 6.18 0.72</pose></include>
+<include><name>goldenfish4</name><uri>model://goldenfish</uri><pose>4.35 11.96 -5.19 7.76 6.17 2.73</pose></include>
+<include><name>goldenfish5</name><uri>model://goldenfish</uri><pose>10.32 19.43 -15.51 7.79 6.15 2.72</pose></include>
+<include><name>goldenfish6</name><uri>model://goldenfish</uri><pose>-1.93 -14.79 -14.89 7.78 6.27 6.17</pose></include>
+<include><name>goldenfish7</name><uri>model://goldenfish</uri><pose>-6.96 14.09 -18.23 7.85 0.01 3.64</pose></include>
+<include><name>goldenfish8</name><uri>model://goldenfish</uri><pose>7.87 13.06 -13.01 1.58 0.14 2.52</pose></include>
+<include><name>goldenfish9</name><uri>model://goldenfish</uri><pose>3.30 20.39 -5.91 7.85 6.25 3.03</pose></include>
+<include><name>goldenfish10</name><uri>model://goldenfish</uri><pose>11.98 11.73 -23.07 1.58 6.26 2.52</pose></include>
+<include><name>goldenfish11</name><uri>model://goldenfish</uri><pose>-15.83 8.79 -5.50 1.63 6.18 4.11</pose></include>
+<include><name>goldenfish12</name><uri>model://goldenfish</uri><pose>-10.71 -14.76 -20.79 7.80 0.09 5.65</pose></include>
+<include><name>goldenfish13</name><uri>model://goldenfish</uri><pose>-11.99 11.97 -20.83 1.68 6.21 3.95</pose></include>
+<include><name>goldenfish14</name><uri>model://goldenfish</uri><pose>-5.50 12.29 -10.19 7.73 6.25 3.45</pose></include>
+<include><name>goldenfish15</name><uri>model://goldenfish</uri><pose>-11.86 -18.15 -4.47 1.62 6.17 5.72</pose></include>
+<include><name>goldenfish16</name><uri>model://goldenfish</uri><pose>-16.00 15.10 -8.25 1.63 6.19 4.07</pose></include>
+<include><name>goldenfish17</name><uri>model://goldenfish</uri><pose>4.03 -14.55 -6.44 1.66 6.20 0.27</pose></include>
+<include><name>goldenfish18</name><uri>model://goldenfish</uri><pose>5.08 -18.64 -23.98 1.65 6.10 0.27</pose></include>
+<include><name>goldenfish19</name><uri>model://goldenfish</uri><pose>11.57 12.66 -8.24 7.80 6.22 2.17</pose></include>
+<include><name>goldenfish20</name><uri>model://goldenfish</uri><pose>-1.19 17.42 -14.28 7.79 0.05 3.22</pose></include>
+<include><name>goldenfish21</name><uri>model://goldenfish</uri><pose>20.55 -7.86 -9.11 7.79 0.10 1.25</pose></include>
+<include><name>goldenfish22</name><uri>model://goldenfish</uri><pose>-0.63 18.87 -24.02 1.66 0.01 3.16</pose></include>
+<include><name>goldenfish23</name><uri>model://goldenfish</uri><pose>13.57 17.32 -22.18 7.71 0.01 2.37</pose></include>
+<include><name>goldenfish24</name><uri>model://goldenfish</uri><pose>9.70 -1.43 -11.64 1.66 0.01 1.38</pose></include>
+<include><name>goldenfish25</name><uri>model://goldenfish</uri><pose>9.42 2.15 -20.66 1.60 6.28 1.74</pose></include>
+<include><name>goldenfish26</name><uri>model://goldenfish</uri><pose>20.76 7.29 -5.89 7.85 0.02 1.88</pose></include>
+<include><name>goldenfish27</name><uri>model://goldenfish</uri><pose>-16.21 -10.03 -5.61 7.84 6.24 5.27</pose></include>
+<include><name>goldenfish28</name><uri>model://goldenfish</uri><pose>-17.52 -9.16 -12.91 7.81 6.20 5.17</pose></include>
+<include><name>goldenfish29</name><uri>model://goldenfish</uri><pose>14.93 5.34 -9.85 1.58 0.11 1.99</pose></include>
+<include><name>catfish0</name><uri>model://catfish</uri><pose>11.10 -3.69 -24.24 6.26 6.24 1.29</pose></include>
+<include><name>catfish1</name><uri>model://catfish</uri><pose>9.41 -7.85 -8.19 6.28 6.22 0.87</pose></include>
+<include><name>catfish2</name><uri>model://catfish</uri><pose>-6.24 -16.27 -24.18 6.23 0.02 6.04</pose></include>
+<include><name>catfish3</name><uri>model://catfish</uri><pose>1.98 14.37 -23.89 6.24 6.25 2.93</pose></include>
+<include><name>catfish4</name><uri>model://catfish</uri><pose>-14.67 -2.89 -8.67 6.19 6.14 4.92</pose></include>
+<include><name>catfish5</name><uri>model://catfish</uri><pose>12.61 -18.03 -14.03 0.02 0.06 0.73</pose></include>
+<include><name>catfish6</name><uri>model://catfish</uri><pose>13.41 -12.05 -17.05 0.05 6.28 0.81</pose></include>
+<include><name>catfish7</name><uri>model://catfish</uri><pose>-3.64 12.09 -3.76 0.07 0.02 3.48</pose></include>
+<include><name>catfish8</name><uri>model://catfish</uri><pose>-10.03 -7.92 -14.60 0.14 0.02 5.35</pose></include>
+<include><name>catfish9</name><uri>model://catfish</uri><pose>1.58 -21.17 -23.75 6.26 0.04 6.19</pose></include>
+<include><name>catfish10</name><uri>model://catfish</uri><pose>13.29 0.70 -5.95 6.26 0.09 1.64</pose></include>
+<include><name>catfish11</name><uri>model://catfish</uri><pose>-7.42 -15.05 -14.41 0.09 6.21 5.66</pose></include>
+<include><name>catfish12</name><uri>model://catfish</uri><pose>18.72 -11.55 -3.72 6.27 6.23 0.99</pose></include>
+<include><name>catfish13</name><uri>model://catfish</uri><pose>6.46 20.79 -18.77 0.10 6.21 2.78</pose></include>
+<include><name>catfish14</name><uri>model://catfish</uri><pose>-2.03 21.91 -3.59 0.07 6.21 3.31</pose></include>
+<include><name>catfish15</name><uri>model://catfish</uri><pose>5.24 -19.90 -9.94 6.14 6.28 0.36</pose></include>
+<include><name>catfish16</name><uri>model://catfish</uri><pose>12.84 -12.56 -11.79 6.27 6.12 0.62</pose></include>
+<include><name>catfish17</name><uri>model://catfish</uri><pose>12.36 -15.17 -6.21 0.04 6.21 0.68</pose></include>
+<include><name>catfish18</name><uri>model://catfish</uri><pose>-14.85 -7.10 -16.88 0.02 6.26 5.10</pose></include>
+<include><name>catfish19</name><uri>model://catfish</uri><pose>-11.88 18.51 -21.81 0.10 0.07 3.70</pose></include>
+<include><name>catfish20</name><uri>model://catfish</uri><pose>-15.39 4.47 -12.20 6.20 0.13 4.46</pose></include>
+<include><name>catfish21</name><uri>model://catfish</uri><pose>-10.80 11.61 -7.28 0.12 6.27 3.81</pose></include>
+<include><name>catfish22</name><uri>model://catfish</uri><pose>13.68 -5.38 -3.20 0.06 0.08 1.32</pose></include>
+<include><name>catfish23</name><uri>model://catfish</uri><pose>14.27 -2.97 -19.54 0.05 6.15 1.37</pose></include>
+<include><name>catfish24</name><uri>model://catfish</uri><pose>13.33 -5.75 -14.46 6.27 0.01 1.17</pose></include>
+<include><name>catfish25</name><uri>model://catfish</uri><pose>13.66 -8.34 -24.71 6.24 6.22 1.14</pose></include>
+<include><name>catfish26</name><uri>model://catfish</uri><pose>12.25 13.81 -12.79 0.03 0.04 2.36</pose></include>
+<include><name>catfish27</name><uri>model://catfish</uri><pose>-20.98 2.00 -20.26 6.28 6.28 4.62</pose></include>
+<include><name>catfish28</name><uri>model://catfish</uri><pose>15.92 4.30 -16.70 0.07 0.07 1.82</pose></include>
+<include><name>catfish29</name><uri>model://catfish</uri><pose>-12.24 10.49 -14.67 0.08 0.10 3.97</pose></include>
+  </world>
+</sdf>
+

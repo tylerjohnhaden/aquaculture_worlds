@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sdf version="1.6">
-  <model name="cagemodel">
-    <pose>0 0 -43 0 0 0</pose>
+  <model name="wec_model">
+    <pose>0 0 0 0 0 0</pose>
     <static>true</static>
     
-    <link name="cagelink">
+    <link name="wec_link">
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://cage/meshes/cage.dae</uri>
+            <uri>model://wec/meshes/WEC.STL</uri>
+            <scale>1 1 1</scale>
           </mesh>
         </geometry>
       </visual>
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://cage/meshes/cage.dae</uri>
+            <uri>model://wec/meshes/WEC.STL</uri>
+            <scale>1 1 1</scale>
           </mesh>
         </geometry>
       </collision>

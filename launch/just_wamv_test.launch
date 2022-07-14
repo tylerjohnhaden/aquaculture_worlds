@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="debug" default="0"/>
+
+    <arg name="use_ned_frame" default="true"/>
+
+    <arg name="namespace" default="rexrov"/>
+    
+
+    <arg name="gui" default="true"/>
+    <arg name="paused" default="false"/>
+    <arg name="set_timeout" default="false"/>
+    <arg name="timeout" default="0.0"/>
+    <arg name="verbose" default="true"/>
+    
+    <!-- USV config -->
+    <arg name="usv_urdf" default="$(find wamv_gazebo)/urdf/wamv_gazebo.urdf.xacro"/>
+    <arg name="usv_locked" default="false" />
+    <arg name="usv_thrust_config" default="H" />
+    <arg name="vrx_sensors_enabled" default="true" />
+    <arg name="usv_namespace" default="wamv5"/>
+    <arg name="rviz_config" default="$(find wamv_gazebo)/config/rviz_vrx.rviz" />
+    <arg name="usv_x" default="0" />
+    <arg name="usv_y" default="0" />
+    <arg name="usv_z" default="0.1" />
+    <arg name="usv_P" default="0" />
+    <arg name="usv_R" default="0" />
+    <arg name="usv_Y" default="0" />
+    
+    <!-- UUV config -->
+    <arg name="uuv_teleop_on" default="false" doc="If true, the teleop node will be started"/>
+    <arg name="joy_id" default="0" doc="Joystick ID"/>
+    <arg name="uuv_x" default="32"/>
+    <arg name="uuv_y" default="32"/>
+    <arg name="uuv_z" default="-20"/>
+    <arg name="uuv_yaw" default="3.7"/>
+    <arg name="uuv_name" default="rexrov"/>
+
+    
+    
+    <param name="$(arg usv_namespace)/robot_description"
+         command="$(find xacro)/xacro '$(arg usv_urdf)'
+         locked:=$(arg usv_locked)		   
+         thruster_config:=$(arg usv_thrust_config)
+         vrx_sensors_enabled:=$(arg vrx_sensors_enabled)
+         namespace:=$(arg usv_namespace) "/> 
+         
+    <node name="spawn_usv_model" pkg="gazebo_ros" type="spawn_model"
+        args="-x $(arg usv_x) -y $(arg usv_y) -z $(arg usv_z)
+              -R $(arg usv_R) -P $(arg usv_P) -Y $(arg usv_Y)
+              -urdf -param $(arg usv_namespace)/robot_description -model $(arg usv_namespace)"/>
+
+</launch>
+

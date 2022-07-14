@@ -76,6 +76,15 @@
         </visual>
       </link>
     </model>
+    <include><name>sand_heightmap</name><uri>model://sand_heightmap</uri><pose>0 0 -95 0 0 0</pose></include>
+    <include><name>sand_heightmap0</name><uri>model://sand_heightmap</uri><pose>0 500 -95 0 0 0</pose></include>
+    <include><name>sand_heightmap1</name><uri>model://sand_heightmap</uri><pose>0 -500 -95 0 0 0</pose></include>
+    <include><name>sand_heightmap2</name><uri>model://sand_heightmap</uri><pose>500 0 -95 0 0 0</pose></include>
+    <include><name>sand_heightmap3</name><uri>model://sand_heightmap</uri><pose>500 500 -95 0 0 0</pose></include>
+    <include><name>sand_heightmap4</name><uri>model://sand_heightmap</uri><pose>500 -500 -95 0 0 0</pose></include>
+    <include><name>sand_heightmap5</name><uri>model://sand_heightmap</uri><pose>-500 0 -95 0 0 0</pose></include>
+    <include><name>sand_heightmap6</name><uri>model://sand_heightmap</uri><pose>-500 500 -95 0 0 0</pose></include>
+    <include><name>sand_heightmap7</name><uri>model://sand_heightmap</uri><pose>-500 -500 -95 0 0 0</pose></include>
     <!--Gazebo Plugin for simulating WAM-V dynamics-->
     <plugin filename="libusv_gazebo_wind_plugin.so" name="wind">
       <!-- models to be effected by the wind -->
@@ -96,6 +105,37 @@
       <topic_wind_speed>/vrx/debug/wind/speed</topic_wind_speed>
       <topic_wind_direction>/vrx/debug/wind/direction</topic_wind_direction>
     </plugin>
+    <plugin name="underwater_current_plugin" filename="libuuv_underwater_current_ros_plugin.so">
+      <namespace>hydrodynamics</namespace>
+      <constant_current>
+        <topic>current_velocity</topic>
+        <velocity>
+          <mean>0</mean>
+          <min>0</min>
+          <max>5</max>
+          <mu>0.0</mu>
+          <noiseAmp>0.0</noiseAmp>
+        </velocity>
+
+        <horizontal_angle>
+          <mean>0</mean>
+          <min>-3.141592653589793238</min>
+          <max>3.141592653589793238</max>
+          <mu>0.0</mu>
+          <noiseAmp>0.0</noiseAmp>
+        </horizontal_angle>
+
+        <vertical_angle>
+          <mean>0</mean>
+          <min>-3.141592653589793238</min>
+          <max>3.141592653589793238</max>
+          <mu>0.0</mu>
+          <noiseAmp>0.0</noiseAmp>
+        </vertical_angle>
+      </constant_current>
+    </plugin>
+
+    <plugin name="sc_interface" filename="libuuv_sc_ros_interface_plugin.so"/>
     <include>
       <uri>model://cage</uri>
       <pose>0 0 -40 0 0 0</pose>

@@ -6,7 +6,7 @@
         type="hard_uuv_routine.py"
         output="screen">
         <rosparam subst_value="true" >
-            uuv_waypoint_filename: $(find aquaculture_worlds)/uuv_waypoint_demo.yaml
+            uuv_waypoint_filename: $(find aquaculture_worlds)/generated_waypoints.yaml
         </rosparam>
     </node>
 </launch>
